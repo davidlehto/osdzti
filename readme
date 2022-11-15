@@ -1,0 +1,12 @@
+DISKPART
+sist disk
+select disk 1
+convert mbr
+
+Winpe
+Edit-OSDCloudWinPE -Worspacepath C:\OSDCloud -CloudDriver * -WebPScript http://raw.githubusercontent.com/davidlehto/osdzti/main/Config.ps1 -Verbose
+
+Ny sticka
+Install-Module OSD -Force
+New-OSDCloudUSB
+Update-OSDCloudUSB -Driverpack * -OSLanguage sv-se

@@ -1,5 +1,5 @@
 DISKPART
-sist disk
+list disk
 select disk 1
 convert mbr
 

@@ -1,6 +1,6 @@
 DISKPART
 list disk
-select disk 1
+select disk 1(usb enheten)
 convert mbr
 
 Winpe
@@ -10,3 +10,19 @@ Ny sticka
 Install-Module OSD -Force
 New-OSDCloudUSB
 Update-OSDCloudUSB -Driverpack * -OSLanguage sv-se
+  OS:
+  Windows 21h2 (business)
+
+  Dell:
+  Latitude 3420
+  Latitude 3520
+
+  HP:
+  ProBook 430 G5
+  ProBook 430 G7
+
+  Lenovo:
+  T15 (type 20S6, 20S7
+  L14 Gen 2 Type 20X1 20X2
+  L14 (type 20U1, 20U2)
+  T14 Gen 1 (type 20S0, 20S1)

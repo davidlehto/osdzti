@@ -17,6 +17,7 @@ Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
 if ((Get-MyComputerManufacturer) -match 'Dell') {
     Write-Host  -ForegroundColor Cyan "Setting bootorder for Dell"
     Install-Module DellBIOSProvider -Force
+    Start-Sleep -Seconds 10
     Import-Module DellBIOSProvider
     cd DellSmbios:\BootSequence
     si .\BootSequence "4"   

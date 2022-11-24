@@ -1,12 +1,6 @@
 Write-Host  -ForegroundColor Cyan "Starting OSDCloud for Windows 10 21h2 sv-se..."
 Start-Sleep -Seconds 5
 
-#Change Display Resolution for Virtual Machine
-if ((Get-MyComputerModel) -match 'Virtual') {
-    Write-Host  -ForegroundColor Cyan "Setting Display Resolution to 1600x"
-    Set-DisRes 1600
-}
-
 #Make sure I have the latest OSD Content
 Write-Host  -ForegroundColor Cyan "Updating OSDCloud PowerShell Module"
 Install-Module OSD -Force
@@ -20,6 +14,12 @@ Start-OSDCloud -OSVersion 'Windows 10' -OSLanguage sv-se -OSBuild 21H2 -OSEditio
 
 #Anything I want can go right here and I can change it at any time since it is in the Cloud!!!!!
 Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
+if ((Get-MyComputerModel) -match 'Dell') {
+    Install-Module DellBIOSProvider -Force
+    Import-Module DellBIOSProvider -Force
+    cd DellSmbios:\BootSequence
+    si .\BootSequence "4"   
+}
 
 #Restart from WinPE
 Write-Host  -ForegroundColor Cyan "Restarting in 20 seconds!"

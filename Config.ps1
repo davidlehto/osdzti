@@ -15,10 +15,12 @@ Start-OSDCloud -OSVersion 'Windows 10' -OSLanguage sv-se -OSBuild 21H2 -OSEditio
 #Anything I want can go right here and I can change it at any time since it is in the Cloud!!!!!
 Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
 if ((Get-MyComputerModel) -match 'Dell') {
+    Write-Host  -ForegroundColor Cyan "Setting bootorder for Dell"
     Install-Module DellBIOSProvider -Force
     Import-Module DellBIOSProvider -Force
     cd DellSmbios:\BootSequence
     si .\BootSequence "4"   
+    Write-Host  -ForegroundColor Cyan "Bootorder set"
 }
 
 #Restart from WinPE

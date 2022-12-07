@@ -16,8 +16,7 @@ Start-OSDCloud -OSVersion 'Windows 10' -OSLanguage sv-se -OSBuild 21H2 -OSEditio
 Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
 if ((Get-MyComputerManufacturer) -match 'Dell') {
     Write-Host  -ForegroundColor Cyan "Setting bootorder for Dell"
-    Install-Module DellBIOSProvider -Force
-    Start-Sleep -Seconds 10
+    cd E:\DellBIOSProvider
     Import-Module DellBIOSProvider
     cd DellSmbios:\BootSequence
     si .\BootSequence "4"   

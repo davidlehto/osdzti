@@ -3,6 +3,11 @@ list disk
 select disk 1(usb enheten)
 convert mbr
 
+Set-ExecutionPolicy RemoteSigned -Force
+Install-Module OSD -Force
+New-OSDCloudTemplate
+New-OSDCloudWorkspace
+
 Winpe
 Edit-OSDCloudWinPE -Worspacepath C:\OSDCloud -CloudDriver * -WebPScript http://raw.githubusercontent.com/davidlehto/osdzti/main/Config.ps1 -Verbose
 

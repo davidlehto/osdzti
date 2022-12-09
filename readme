@@ -13,6 +13,7 @@ New-OSDCloudWorkspace
 
 Winpe
 Edit-OSDCloudWinPE -Worspacepath C:\OSDCloud -CloudDriver * -WebPScript http://raw.githubusercontent.com/davidlehto/osdzti/main/Config.ps1 -Verbose
+url till raw fil för config
 
 Ny sticka
 Install-Module OSD -Force

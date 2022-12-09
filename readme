@@ -3,6 +3,9 @@ list disk
 select disk 1(usb enheten)
 convert mbr
 
+Wordstation setup
+https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
+https://www.microsoft.com/en-us/download/details.aspx?id=54259
 Set-ExecutionPolicy RemoteSigned -Force
 Install-Module OSD -Force
 New-OSDCloudTemplate

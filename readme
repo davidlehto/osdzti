@@ -12,7 +12,7 @@ New-OSDCloudTemplate
 New-OSDCloudWorkspace
 
 Winpe
-Edit-OSDCloudWinPE -Worspacepath C:\OSDCloud -CloudDriver * -WebPScript http://raw.githubusercontent.com/davidlehto/osdzti/main/Config.ps1 -Modules DellBIOSProvider -Verbose
+Edit-OSDCloudWinPE -Workspacepath C:\OSDCloud -CloudDriver * -WebPSScript http://raw.githubusercontent.com/davidlehto/osdzti/main/Config.ps1 -Modules DellBIOSProvider -Verbose
 url till raw fil för config
 
 Ny sticka

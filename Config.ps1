@@ -19,6 +19,7 @@ if ((Get-MyComputerManufacturer) -match 'Dell') {
     E:\BIOS\Dell-scripts\Install-DellBiosProvider.ps1 -ModulePath E:\BIOS\DellBIOSProvider -DllPath E:\BIOS\DllFiles
     Import-Module DellBIOSProvider 
     Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799
+    Set-Item -Path DellSmbios:\BootSequence BootList "Uefi"
     Write-Host  -ForegroundColor Cyan "Bootorder set"
 }
 

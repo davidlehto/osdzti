@@ -3,7 +3,8 @@ Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
 if ((Get-MyComputerManufacturer) -match 'Dell') {
     Write-Host  -ForegroundColor Cyan "Setting bootorder for Dell"
     E:\BIOS\Dell-scripts\Install-DellBiosProvider.ps1 -ModulePath E:\BIOS\DellBIOSProvider -DllPath E:\BIOS\DllFiles
-    Import-Module DellBIOSProvider  
+    Import-Module DellBIOSProvider 
+    Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799
     Write-Host  -ForegroundColor Cyan "Bootorder set"
 }
 

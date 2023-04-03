@@ -16,7 +16,7 @@ Start-OSDCloud -OSVersion 'Windows 10' -OSLanguage sv-se -OSBuild 21H2 -OSEditio
 Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
 if ((Get-MyComputerManufacturer) -match 'Dell') {
     Write-Host  -ForegroundColor Cyan "Setting bootorder for Dell"
-    E:\BIOS\Dell-scripts\Install-DellBiosProvider.ps1 -ModulePath E:\BIOS\DellBIOSProvider -DllPath E:\BIOS\DllFiles
+    D:\BIOS\Dell-scripts\Install-DellBiosProvider.ps1 -ModulePath D:\BIOS\DellBIOSProvider -DllPath D:\BIOS\DllFiles
     Import-Module DellBIOSProvider 
     Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799
     Set-Item -Path DellSmbios:\BootSequence BootList "Uefi"

@@ -22,9 +22,14 @@ if ((Get-MyComputerManufacturer) -match 'Dell') {
     Import-Module DellBIOSProvider 
 
     Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799
+    Start-Sleep -Seconds 10
     Set-Dell1stBootdevice -bootdevice "UEFI KBG" -Password 6541779799
+    Start-Sleep -Seconds 10
 
     Write-Host  -ForegroundColor Cyan "Bootorder and BIOS Password set"
 }
-
+#Restart from WinPE
+Write-Host  -ForegroundColor Cyan "Restarting in 20 seconds!"
+Start-Sleep -Seconds 20
+wpeutil reboot
 

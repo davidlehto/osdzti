@@ -33,7 +33,7 @@ if ((Get-MyComputerManufacturer) -match 'Dell') {
 
     }
     Start-Sleep -Seconds 10
-    Set-Dell1stBootdevice -bootdevice "UEFI KBG" -Password 6541779799
+    Set-Dell1stBootdevice -bootdevice 0 -Password 6541779799
     Start-Sleep -Seconds 10
 
     Write-Host  -ForegroundColor Cyan "Bootorder and BIOS Password set"

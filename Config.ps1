@@ -14,30 +14,20 @@ Start-OSDCloud -OSVersion 'Windows 10' -OSLanguage sv-se -OSBuild 21H2 -OSEditio
 
 #Anything I want can go right here and I can change it at any time since it is in the Cloud!!!!!
 Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
-if ((Get-MyComputerManufacturer) -match 'Dell') {
-    Write-Host  -ForegroundColor Cyan "Setting bootorder and BIOS password for Dell"
-    D:\BIOS\Dell-scripts\Install-DellBiosProvider.ps1 -ModulePath D:\BIOS\DellBIOSProvider -DllPath D:\BIOS\DllFiles
+#if ((Get-MyComputerManufacturer) -match 'Dell') {
+    #Write-Host  -ForegroundColor Cyan "Setting bootorder and BIOS password for Dell"
+    #D:\BIOS\Dell-scripts\Install-DellBiosProvider.ps1 -ModulePath D:\BIOS\DellBIOSProvider -DllPath D:\BIOS\DllFiles
 
-    Write-Host  -ForegroundColor Cyan "Importing DellBIOSProvider PowerShell Module"
-    Import-Module DellBIOSProvider 
+    #Write-Host  -ForegroundColor Cyan "Importing DellBIOSProvider PowerShell Module"
+    #Import-Module DellBIOSProvider 
     
-    $isPass=Get-Item -Path DellSmbios:\Security\IsAdminPasswordSet | select CurrentValue
+    #D:\BIOS\Dell-scripts\Manage-DellBiosPasswords-PSModule.ps1 -AdminSet -AdminPassword 6541779799 -OldAdminPassword 6541779799
+    #Start-Sleep -Seconds 10
+    #D:\BIOS\Dell-scripts\Manage-DellBiosSettings-WMI.ps1 -SetBootOrder "Windows Boot Manager","Onboard NIC(IPV4)","Onboard NIC(IPV6)" -BootMode UEFI -AdminPassword ExamplePassword
+    #Start-Sleep -Seconds 10
 
-    if($isPass."CurrentValue"="True"){
-
-    Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799 -Password 6541779799
-
-    }else {
-
-    Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799
-
-    }
-    Start-Sleep -Seconds 10
-    Set-Dell1stBootdevice -bootdevice 0 -Password 6541779799
-    Start-Sleep -Seconds 10
-
-    Write-Host  -ForegroundColor Cyan "Bootorder and BIOS Password set"
-}
+    #Write-Host  -ForegroundColor Cyan "Bootorder and BIOS Password set"
+#}
 #Restart from WinPE
 Write-Host  -ForegroundColor Cyan "Restarting in 20 seconds!"
 Start-Sleep -Seconds 20

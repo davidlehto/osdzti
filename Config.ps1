@@ -20,8 +20,18 @@ if ((Get-MyComputerManufacturer) -match 'Dell') {
 
     Write-Host  -ForegroundColor Cyan "Importing DellBIOSProvider PowerShell Module"
     Import-Module DellBIOSProvider 
+    
+    $isPass=Get-Item -Path DellSmbios:\Security\IsAdminPasswordSet | select CurrentValue
+
+    if($isPass."CurrentValue"="True"){
+
+    Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799 -Password 6541779799
+
+    }else {
 
     Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799
+
+    }
     Start-Sleep -Seconds 10
     Set-Dell1stBootdevice -bootdevice "UEFI KBG" -Password 6541779799
     Start-Sleep -Seconds 10

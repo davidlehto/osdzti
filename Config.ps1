@@ -17,10 +17,13 @@ Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
 if ((Get-MyComputerManufacturer) -match 'Dell') {
     Write-Host  -ForegroundColor Cyan "Setting bootorder and BIOS password for Dell"
     D:\BIOS\Dell-scripts\Install-DellBiosProvider.ps1 -ModulePath D:\BIOS\DellBIOSProvider -DllPath D:\BIOS\DllFiles
-    Import-Module DellBIOSProvider 
+
     Write-Host  -ForegroundColor Cyan "Importing DellBIOSProvider PowerShell Module"
+    Import-Module DellBIOSProvider 
+
     Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799
     Set-Dell1stBootdevice -bootdevice "UEFI KBG" -Password 6541779799
+
     Write-Host  -ForegroundColor Cyan "Bootorder and BIOS Password set"
 }
 

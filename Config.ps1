@@ -1,4 +1,4 @@
-Write-Host  -ForegroundColor Cyan "Starting OSDCloud for Windows 10 21h2 sv-se..."
+Write-Host  -ForegroundColor Cyan "Starting OSDCloud for Windows 10 21h2 sv-se (Transtema)..."
 Start-Sleep -Seconds 5
 
 #Make sure I have the latest OSD Content
@@ -18,7 +18,8 @@ if ((Get-MyComputerManufacturer) -match 'Dell') {
     Write-Host  -ForegroundColor Cyan "Setting bootorder and BIOS password for Dell"
     D:\BIOS\Dell-scripts\Install-DellBiosProvider.ps1 -ModulePath D:\BIOS\DellBIOSProvider -DllPath D:\BIOS\DllFiles
     Import-Module DellBIOSProvider 
-    Set-Dell1stBootdevice "uefi rst"
+    Write-Host  -ForegroundColor Cyan "DellBiosProvider imported"
+    Set-Dell1stBootdevice "uefi rst" -Password 6541779799
     Set-Item -Path DellSmbios:\Security\AdminPassword 6541779799
     Write-Host  -ForegroundColor Cyan "Bootorder and BIOS Password set"
 }

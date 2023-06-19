@@ -1,4 +1,4 @@
-Write-Host  -ForegroundColor Cyan "Starting OSDCloud for Windows 10 21h2 sv-se (Transtema)..."
+Write-Host  -ForegroundColor Cyan "Starting OSDCloud for Windows 10 22h2 sv-se (Transtema)..."
 Start-Sleep -Seconds 5
 
 #Make sure I have the latest OSD Content
@@ -9,8 +9,8 @@ Write-Host  -ForegroundColor Cyan "Importing OSDCloud PowerShell Module"
 Import-Module OSD -Force
 
 #Start OSDCloud ZTI the RIGHT way
-Write-Host  -ForegroundColor Cyan "Starting OSDCloud with Windows 10 21h2 sv-se"
-Start-OSDCloud -OSVersion 'Windows 10' -OSLanguage sv-se -OSBuild 21H2 -OSEdition Enterprise -ZTI
+Write-Host  -ForegroundColor Cyan "Starting OSDCloud with Windows 10 22h2 sv-se"
+Start-OSDCloud -OSVersion 'Windows 10' -OSLanguage sv-se -OSBuild 22H2 -OSEdition Enterprise -ZTI
 
 #Anything I want can go right here and I can change it at any time since it is in the Cloud!!!!!
 Write-Host  -ForegroundColor Cyan "Starting OSDCloud PostAction ..."
